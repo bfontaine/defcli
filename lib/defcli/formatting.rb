@@ -95,10 +95,11 @@ module Defcli
 
           "#{upvotes}/#{downvotes}"
         elsif r[:ratio]
-          rating = "%2d%%".format(r[:ratio] * 100.0)
+          percentage = r[:ratio] * 100.0
+          rating = format("%2d%%", percentage)
 
           if color
-            if rating > 60
+            if percentage > 60
               rating = rating.green
             else
               rating = rating.red
